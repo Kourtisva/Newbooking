@@ -92,8 +92,8 @@
               // Set defaults if no URL configured
               setAvailableDates(['15/01/2025']);
               setAdminDate('15/01/2025');
-              setTimeSlots({'09:00':2,'10:00':2,'11:00':2,'12:00':2,'13:00':2,'14:00':2,'15:00':2,'16:00':1,'17:00':1,'18:00':1,'19:00':1,'20:00':2,'21:00':2});
-              setGdprText('Δηλώνω την σαφή και ανεπιφύλακτη συγκατάθεση μου στην Ειρήνη Τουρλεντέ του Παναγιώτη (So Ham - Yoga & Pranic Healing) για τη συλλογή, τήρηση κι επεξεργασία των ανωτέρω δεδομένων μου, για την προς εμένα αποστολή ενημερωτικού mail με επιλεγμένες εκδηλώσεις και διδακτικά σεμινάρια του. Δηλώνω, επίσης, ότι ενημερώθηκα για την ύπαρξη δικαιώματος ανάκλησης της ως άνω χορηγηθείσας συγκατάθεσής μου ή διόρθωσης αυτών με την αποστολή αντίστοιχου mail στην ηλεκτρονική διεύθυνση sohamgreece@gmail.com Τα ως άνω δεδομένα θα διατηρηθούν μέχρι την ρητή ανάκληση της συγκατάθεσης.Υπάρχει δικαίωμα υποβολής καταγγελίας στην αρμόδια εποπτική αρχή. Υπεύθυνος επεξεργασίας: Ειρήνη Τουρλεντέ του Παναγιώτη (So Ham - Yoga & Pranic Healing).');
+              setTimeSlots({'09:00': 3, '09:30': 3, '10:00': 3, '14:00': 2, '14:30': 2});
+              setGdprText('Αποδέχομαι τους όρους GDPR');
               setSettingsLoaded(true);
               return;
             }
@@ -128,7 +128,7 @@
                 console.log('No settings in sheet, using defaults');
                 setAvailableDates(['15/01/2025']);
                 setAdminDate('15/01/2025');
-                setTimeSlots({'09:00':2,'10:00':2,'11:00':2,'12:00':2,'13:00':2,'14:00':2,'15:00':2,'16:00':1,'17:00':1,'18:00':1,'19:00':1,'20:00':2,'21:00':2});
+                setTimeSlots({'09:00': 3, '09:30': 3, '10:00': 3, '14:00': 2, '14:30': 2});
                 setGdprText('Αποδέχομαι τους όρους GDPR');
               }
               setSettingsLoaded(true);
@@ -137,8 +137,8 @@
               // Use defaults on error
               setAvailableDates(['15/01/2025']);
               setAdminDate('15/01/2025');
-              setTimeSlots({'09:00':2,'10:00':2,'11:00':2,'12:00':2,'13:00':2,'14:00':2,'15:00':2,'16:00':1,'17:00':1,'18:00':1,'19:00':1,'20:00':2,'21:00':2});
-              setGdprText('Αποδέχομαι τους όρους GDPR');
+              setTimeSlots({'09:00': 3, '09:30': 3, '10:00': 3, '14:00': 2, '14:30': 2});
+              setGdprText('Δηλώνω την σαφή και ανεπιφύλακτη συγκατάθεση μου στην Ειρήνη Τουρλεντέ του Παναγιώτη (So Ham - Yoga & Pranic Healing) για τη συλλογή, τήρηση κι επεξεργασία των ανωτέρω δεδομένων μου, για την προς εμένα αποστολή ενημερωτικού mail με επιλεγμένες εκδηλώσεις και διδακτικά σεμινάρια του. Δηλώνω, επίσης, ότι ενημερώθηκα για την ύπαρξη δικαιώματος ανάκλησης της ως άνω χορηγηθείσας συγκατάθεσής μου ή διόρθωσης αυτών με την αποστολή αντίστοιχου mail στην ηλεκτρονική διεύθυνση sohamgreece@gmail.com Τα ως άνω δεδομένα θα διατηρηθούν μέχρι την ρητή ανάκληση της συγκατάθεσης.Υπάρχει δικαίωμα υποβολής καταγγελίας στην αρμόδια εποπτική αρχή. Υπεύθυνος επεξεργασίας: Ειρήνη Τουρλεντέ του Παναγιώτη (So Ham - Yoga & Pranic Healing).');
               setSettingsLoaded(true);
             }
           };
@@ -380,7 +380,7 @@
                   <div className={showAdmin ? 'lg:col-span-2' : ''}>
                     <div className="bg-white rounded-lg shadow-lg p-8">
                       <h1 className="text-3xl font-bold text-gray-800 mb-2">Κλείστε μία δωρεάν θεραπεία Pranic Healing</h1>
-                      <p className="text-gray-600 mb-6"> </p>
+                      <p className="text-gray-600 mb-6">Επιλέξτε ημερομηνία και ώρα. Παρακαλώ βεβαιωθείτε πως τα στοιχεία επικοινωνίας είναι σωστά</p>
 
                       {submitted ? (
                         <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
@@ -500,13 +500,13 @@
                           <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
                             <input
                               type="checkbox"
-                              id=""
-                              checked={Accepted}
-                              onChange={(e) => setAccepted(e.target.checked)}
+                              id="gdpr"
+                              checked={gdprAccepted}
+                              onChange={(e) => setGdprAccepted(e.target.checked)}
                               className="w-4 h-4 mt-1 cursor-pointer"
                             />
-                            <label htmlFor="" className="text-xs text-gray-700 cursor-pointer">
-                              {Text}
+                            <label htmlFor="gdpr" className="text-xs text-gray-700 cursor-pointer">
+                              {gdprText}
                             </label>
                           </div>
 
